@@ -49,7 +49,25 @@ or
 yarn dev
 ```
 * Click the link (usually http://localhost:5173) shown in your terminal to open the project in your browser
+## 🔨 How to Start a Similar Project? 
+If you want to create a project similar to this Album & User Dashboard, follow these steps:
+### 1. Initialize your React project
 
+```bash
+npm create vite@latest project-name -- --template react
+cd my-album-app
+```
+### 2. Install required dependencies
+```
+npm install react-router-dom @tanstack/react-table antd tailwindcss postcss autoprefixer react-icons react-viewer react-loading-skeleton
+```
+Or you can also install dependencies only when you actually need them to keep your project lightweight and clean. (using ***npm install***)
+### 3. Setup Tailwind CSS
+Initialize Tailwind CSS and configure it: 
+```
+npm install tailwindcss @tailwindcss/vite
+```
+And you can continue by following the instruction in https://tailwindcss.com/docs/installation/using-vite
 ### 🧪 Approach & Tools
 - [React](https://reactjs.org/): Chosen for component-based architecture and ecosystem.
 - [Vite](https://vitejs.dev/): Fast development and build tooling.
@@ -60,6 +78,8 @@ yarn dev
 - [React Icons](https://react-icons.github.io/react-icons/): Provides popular icon packs as React components.
 - [React Viewer](https://github.com/infeng/react-viewer): Image viewer component to display album photos.
 - [React Loading Skeleton](https://github.com/dvtng/react-loading-skeleton): Displays loading skeletons during API calls.
+
+
 ##  👤 Authors 
 **Huynh Nguyen Ngoc Anh**  
 📧 [anh.huynhanh@hcmut.edu.vn](mailto:anh.huynhanh@hcmut.edu.vn)  
