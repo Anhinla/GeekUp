@@ -3,7 +3,7 @@
 A React-based web application built as a technical assessment. The app mimics the UI and behavior of this template, utilizing external APIs for data fetching and avatar generation.
 
 ## 🔗 Live Preview
-
+**Link project:** [https://github.com/Anhinla/GeekUp](https://github.com/Anhinla/GeekUp)
 **Live Demo:** [https://geek-up-internship.vercel.app](https://geek-up-internship.vercel.app)
 
 ## 🚀 Features
@@ -26,9 +26,9 @@ A React-based web application built as a technical assessment. The app mimics th
 ```
 git clone https://github.com/Anhinla/GeekUp.git
 ```
-
+or download the source code and extract the folder
 ### Build the project
-* Open the terminal and navigate to the cloned folder:
+* Open the terminal and navigate to the project folder:
 ```
 cd GeekUp
 ```
