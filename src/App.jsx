@@ -17,15 +17,18 @@ import { useContext } from "react"
 import { GlobalContext } from "./context"
 import AlbumDisplay from "./components/AlbumDisplay"
 import UserDisplay from "./components/UserDisplay"
+import BurgerMenu from "./components/BurgerMenu"
+import MobileSidebar from "./components/MobileSidebar"
 
 function AppLayout() {
   const location = useLocation()
   const isAlbums = location.pathname === "/" || location.pathname === "/albums"
-  const {expanded} = useContext(GlobalContext);
-  const sidebarWidth = expanded ? "ml-68" : "ml-20"// You can still conditionally apply this if needed
+  const {expanded,visible,mobile} = useContext(GlobalContext);
+  const sidebarWidth = !visible?"ml-6":(expanded ? "ml-68" : "ml-20")// You can still conditionally apply this if needed
   return (
     <div className="h-screen flex flex-col">
       <Header />
+      {mobile && <MobileSidebar/>}
       <div className="flex flex-1 bg-teal-50">
         <Sidebar>
           <SidebarItem
@@ -43,6 +46,7 @@ function AppLayout() {
             to="/users"
           />
         </Sidebar>
+        {!mobile && !visible && <BurgerMenu/>}
         <div
           className={`pt-16 ${sidebarWidth} w-full transition-all duration-300 mr-4`}
         >

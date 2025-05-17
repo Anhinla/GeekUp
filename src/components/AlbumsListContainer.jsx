@@ -76,7 +76,7 @@ const AlbumsListContainer = () => {
           const name = row.original.username
           return (
             <Link to={`/users/${row.original.userId}`}>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <img
                   src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
                     name
@@ -95,7 +95,7 @@ const AlbumsListContainer = () => {
         cell: ({row}) => (
           <Link
             to={`/albums/${row.original.id}`}
-            className="w-20 flex items-center gap-2 px-2 py-0.5 border border-gray-500 text-gray-500 rounded-sm text-sm hover:text-teal-600 hover:border-teal-600 transition cursor-pointer"
+            className="w-20 flex items-center justify-center gap-2 py-0.5 border border-gray-500 text-gray-500 rounded-sm text-sm hover:text-teal-600 hover:border-teal-600 transition cursor-pointer"
           >
             <IoEyeOutline />
             Show

@@ -7,6 +7,8 @@ export const GlobalContext = createContext(null);
 export default function GlobalState({children}){
    // true: albums, false: users
     const [expanded,setExpanded] = useState(true);
+    const [visible, setVisible] = useState(true);
+    const [mobile,setMobile] = useState(false);
     function hslToHex(h, s, l) {
       s /= 100
       l /= 100
@@ -42,12 +44,20 @@ export default function GlobalState({children}){
       </tr>
     )  
 
-    return <GlobalContext.Provider value={{
-        expanded,
-        setExpanded,
-        getColorFromName,
-        SkeletonRow
-    }}>
+    return (
+      <GlobalContext.Provider
+        value={{
+          expanded,
+          setExpanded,
+          getColorFromName,
+          SkeletonRow,
+          visible,
+          setVisible,
+          mobile,
+          setMobile,
+        }}
+      >
         {children}
-    </GlobalContext.Provider>
+      </GlobalContext.Provider>
+    )
 }

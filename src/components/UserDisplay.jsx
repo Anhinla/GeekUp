@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import { BiSolidUserAccount } from "react-icons/bi";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { GlobalContext } from "../context";
 import { Link } from "react-router-dom";
 import { IoArrowBackOutline, IoEyeOutline } from "react-icons/io5";
@@ -14,7 +14,7 @@ const UserDisplay = () => {
     const { getColorFromName, SkeletonRow } = useContext(GlobalContext)
     const [albumLoading, setAlbumLoading] = useState(true)
     const [userLoading, setUserLoading] = useState(true)
-
+    const navigate = useNavigate();
     useEffect(()=>{
       setUserLoading(true)
         fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
@@ -70,11 +70,12 @@ const UserDisplay = () => {
       </div>
 
       <div className="flex gap-6 items-center mt-2">
-        <Link to={"/users"}>
-          <div className="text-xl hover:bg-gray-200 p-2 rounded-md">
-            <IoArrowBackOutline />
-          </div>
-        </Link>
+        <div
+          className="text-xl hover:bg-gray-200 p-2 rounded-md cursor-pointer"
+          onClick={() => navigate(-1)}
+        >
+          <IoArrowBackOutline />
+        </div>
         <h2 className="text-lg font-semibold">Show User</h2>
       </div>
       <div className="bg-white p-6 m-4 shadow-sm rounded-sm">

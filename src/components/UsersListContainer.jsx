@@ -92,7 +92,7 @@ const UsersListContainer = () => {
         cell: ({ row }) => (
           <Link
             to={`/users/${row.original.id}`}
-            className="w-20 flex items-center gap-2 px-2 py-0.5 border border-gray-500 text-gray-500 rounded-sm text-sm hover:text-teal-600 hover:border-teal-600 transition cursor-pointer"
+            className="w-20 flex items-center justify-center gap-2 py-0.5 border border-gray-500 text-gray-500 rounded-sm text-sm hover:text-teal-600 hover:border-teal-600 transition cursor-pointer"
           >
             <IoEyeOutline />
             Show

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { FaRegListAlt } from "react-icons/fa"
 import { IoArrowBackOutline } from "react-icons/io5"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { GlobalContext } from "../context"
 import Viewer from "react-viewer"
 
@@ -14,7 +14,7 @@ const AlbumDisplay = () => {
   const { getColorFromName} = useContext(GlobalContext)
   const [albumLoading, setAlbumLoading] = useState(true)
   const [userLoading, setUserLoading] = useState(true)
-
+  const navigate = useNavigate();
 
 
   const [viewerVisible, setViewerVisible] = useState(false)
@@ -67,11 +67,12 @@ const AlbumDisplay = () => {
       </div>
 
       <div className="flex gap-6 items-center mt-2">
-        <Link to={"/albums"}>
-          <div className="text-xl hover:bg-gray-200 p-2 rounded-md">
-            <IoArrowBackOutline />
-          </div>
-        </Link>
+        <div
+          className="text-xl hover:bg-gray-200 p-2 rounded-md cursor-pointer"
+          onClick={() => navigate(-1)}
+        >
+          <IoArrowBackOutline />
+        </div>
         <h2 className="text-lg font-semibold">Show Album</h2>
       </div>
       <div className="bg-white p-6 m-4 shadow-sm rounded-sm">
@@ -122,7 +123,7 @@ const AlbumDisplay = () => {
             </p>
           )}
           {albumLoading ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 mt-6 px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-6 px-4">
               {[...Array(10)].map((_, i) => (
                 <div key={i} className="bg-white p-2 rounded shadow-sm">
                   <div className="w-full h-24 bg-gray-200 rounded animate-pulse"></div>
@@ -133,7 +134,7 @@ const AlbumDisplay = () => {
           ) : (
             photos.length > 0 && (
               <>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 mt-6 px-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 px-4">
                   {photos.map((photo, index) => (
                     <div
                       key={photo.id}
