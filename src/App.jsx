@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar"
 import SidebarItem from "./components/SidebarItem"
 import { BiSolidUserAccount } from "react-icons/bi"
 import { FaRegListAlt } from "react-icons/fa"
+import { Navigate } from "react-router-dom"
 import {
   BrowserRouter as Router,
   Routes,
@@ -47,11 +48,11 @@ function AppLayout() {
         >
           <div className="p-4 w-full">
             <Routes>
-              <Route path="/" element={<AlbumsListContainer />} />
+              <Route path="/" element={<Navigate to="/albums" replace />} />
               <Route path="/albums" element={<AlbumsListContainer />} />
-              <Route path="/albums/:id" element={<AlbumDisplay />}/>
+              <Route path="/albums/:id" element={<AlbumDisplay />} />
               <Route path="/users" element={<UsersListContainer />} />
-              <Route path="/users/:id" element={<UserDisplay/>}/>
+              <Route path="/users/:id" element={<UserDisplay />} />
             </Routes>
           </div>
         </div>
