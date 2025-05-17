@@ -8,6 +8,7 @@ import { useEffect, useState, useMemo, useContext } from "react"
 import { IoEyeOutline } from "react-icons/io5"
 import { GlobalContext } from "../context"
 import { useSearchParams, useNavigate, Link } from "react-router-dom"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 const AlbumsListContainer = () => {
   const { getColorFromName, SkeletonRow } = useContext(GlobalContext)
@@ -139,7 +140,7 @@ const AlbumsListContainer = () => {
           </thead>
           <tbody>
             {loading
-              ? [...Array(7)].map((_, idx) => <SkeletonRow key={idx} row={4}/>)
+              ? [...Array(7)].map((_, idx) => <SkeletonRow key={idx} row={4} />)
               : table.getRowModel().rows.map((row) => (
                   <tr key={row.id} className="hover:bg-gray-50">
                     {row.getVisibleCells().map((cell) => (
@@ -163,9 +164,9 @@ const AlbumsListContainer = () => {
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="px-2 py-1 border rounded disabled:opacity-50"
+            className="px-2 py-1 flex items-center justify-center disabled:opacity-50"
           >
-            {"<"}
+            <FaChevronLeft />
           </button>
 
           {[...Array(table.getPageCount()).keys()].map((index) => (
@@ -174,7 +175,7 @@ const AlbumsListContainer = () => {
               onClick={() => table.setPageIndex(index)}
               className={`px-3 py-1 rounded transition ${
                 index === pagination.pageIndex
-                  ? "border-teal-600 text-teal-600 font-semibold border bg-white"
+                  ? "border-teal-600 text-teal-600 border bg-white"
                   : "hover:bg-gray-100"
               }`}
             >
@@ -185,9 +186,9 @@ const AlbumsListContainer = () => {
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="px-2 py-1 border rounded disabled:opacity-50"
+            className="px-2 py-1 flex items-center justify-center disabled:opacity-50"
           >
-            {">"}
+            <FaChevronRight />
           </button>
         </div>
 
@@ -200,7 +201,7 @@ const AlbumsListContainer = () => {
                 pageSize: Number(e.target.value),
               }))
             }
-            className="border rounded p-1 text-sm"
+            className="border rounded p-1 px-2 text-sm bg-white"
           >
             {[10, 20, 30, 40, 50].map((size) => (
               <option key={size} value={size}>

@@ -8,7 +8,7 @@ const BurgerMenu = () => {
 
   return (
     <button
-      className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-md border border-gray-300"
+      className="md:hidden fixed top-20 left-4 z-50 p-2 bg-white rounded-md shadow-md border border-gray-300"
       onClick={()=>{setMobile(true);}}
     >
       <IoList size={24} />
